@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jwcyzhpt.modules.teaching.dao.KjryMapper">
+
+    <resultMap id="KjryxxbResultMap" type="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        <result column="KJRYGUID" property="kjryGuid" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="SEX" property="sex" jdbcType="DECIMAL"/>
+        <result column="BIRTH" property="birth" jdbcType="VARCHAR"/>
+        <result column="NATION" property="nation" jdbcType="DECIMAL"/>
+        <result column="COUNTRY" property="country" jdbcType="INTEGER"/>
+        <result column="ID_TYPE" property="idType" jdbcType="INTEGER"/>
+        <result column="ID_NUM" property="idNum" jdbcType="INTEGER"/>
+        <result column="POLTC_STATUS" property="poltcStatus" jdbcType="VARCHAR"/>
+        <result column="ACNT_WORK_DATE" property="acntWorkDate" jdbcType="VARCHAR"/>
+        <result column="ACNT_WORK_YEAR" property="acntWorkYear" jdbcType="VARCHAR"/>
+        <result column="FT_EDUCATION" property="ftEducation" jdbcType="VARCHAR"/>
+        <result column="FT_DEGREE" property="ftDegree" jdbcType="VARCHAR"/>
+        <result column="FT_EDU_UNIVE" property="ftEduUnive" jdbcType="VARCHAR"/>
+        <result column="FT_EDU_PRO" property="ftEduPro" jdbcType="VARCHAR"/>
+        <result column="PT_EDUCATION" property="ptEducation" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE" property="ptDegree" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE_UNIVE" property="ptDegreeUnive" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE_PRO" property="ptDegreePro" jdbcType="VARCHAR"/>
+        <result column="ADMIN_POST" property="adminPost" jdbcType="VARCHAR"/>
+        <result column="PQ_POST" property="pqPost" jdbcType="VARCHAR"/>
+        <result column="IS_CPA" property="isCpa" jdbcType="VARCHAR"/>
+        <result column="IS_CPV" property="isCpv" jdbcType="VARCHAR"/>
+        <result column="IS_CTA" property="isCta" jdbcType="VARCHAR"/>
+        <result column="KJSF" property="kjsf" jdbcType="VARCHAR"/>
+        <result column="MOBILE" property="mobile" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
+        <result column="IS_ATWORK" property="isAtwork" jdbcType="VARCHAR"/>
+        <result column="ORG_FULL_NAME" property="orgFullName" jdbcType="VARCHAR"/>
+        <result column="SOC_CRE_CODE" property="socCreCode" jdbcType="VARCHAR"/>
+        <result column="ORG_TEL" property="orgTel" jdbcType="VARCHAR"/>
+        <result column="ORG_ADDRESS" property="orgAddress" jdbcType="VARCHAR"/>
+        <result column="ORG_TYPE" property="orgType" jdbcType="VARCHAR"/>
+        <result column="ACNT_POSITION" property="acntPosition" jdbcType="VARCHAR"/>
+        <result column="DIVION_PROVICE" property="divionProvice" jdbcType="INTEGER"/>
+        <result column="REGION_CODE" property="regionCode" jdbcType="INTEGER"/>
+        <result column="AREA_CODE" property="qu" jdbcType="INTEGER"/>
+        <result column="ABACUS_LEVEL" property="abacusLevel" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE_DATE" property="ptdegreeDate" jdbcType="VARCHAR"/>
+        <result column="PQ_POST_GDATE" property="pqPostGdate" jdbcType="VARCHAR"/>
+        <result column="STATE" property="state" jdbcType="VARCHAR"/>
+        <result column="CTIME" property="ctime" jdbcType="VARCHAR"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="IS_YCPA_TIME" property="is_ycpa_time" jdbcType="VARCHAR"/>
+        <result column="GZSSQY" property="gzssqy" jdbcType="VARCHAR"/>
+        <result column="ZGDWQY" property="zgdwqy" jdbcType="VARCHAR"/>
+        <result column="GRLXDZ" property="grlxdz" jdbcType="VARCHAR"/>
+        <result column="IS_QRZ" property="is_qrz" jdbcType="VARCHAR"/>
+        <result column="KJZJ_NUM" property="kjzj_num" jdbcType="VARCHAR"/>
+        <result column="IS_GDRC" property="isgdrc" jdbcType="VARCHAR"/>
+        <result column="JSJ_FZDATE" property="jsj_fzdate" jdbcType="VARCHAR"/>
+        <result column="JSJ_SCFZDATE" property="jsj_scfzdate" jdbcType="VARCHAR"/>
+        <result column="JSJ_FZDW" property="jsj_fzwd" jdbcType="VARCHAR"/>
+        <result column="JSJ_JSC_BARCODE" property="jsj_barccode" jdbcType="VARCHAR"/>
+        <result column="SN_CZBCDATE" property="czbcsj" jdbcType="VARCHAR"/>
+        <result column="SN_CZTJDATE" property="cztjsj" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap type="com.jwcyzhpt.modules.sys.entity.po.UserLogin" id="UserLoginMap">
+        <result property="user_bm" column="user_bm" jdbcType="VARCHAR"/>
+        <result property="user_name" column="user_name" jdbcType="VARCHAR"/>
+        <result property="user_pwd" column="user_pwd" jdbcType="VARCHAR"/>
+        <result property="user_dwbm" column="user_dwbm" jdbcType="VARCHAR"/>
+        <result property="user_type" column="user_type" jdbcType="VARCHAR"/>
+        <result property="login_dwdm" column="login_dwdm" jdbcType="VARCHAR"/>
+        <result property="login_dwjb" column="login_dwjb" jdbcType="VARCHAR"/>
+        <result property="login_dwname" column="login_dwname" jdbcType="VARCHAR"/>
+        <result property="login_ddid" column="ddid" jdbcType="VARCHAR"/>
+        <result property="login_xtname" column="login_xtname" jdbcType="VARCHAR"/>
+        <result property="login_zzpc" column="login_zzpc" jdbcType="VARCHAR"/>
+        <result property="login_csname" column="login_csname" jdbcType="VARCHAR"/>
+        <result property="login_dwtype" column="dwtype" jdbcType="VARCHAR"/>
+        <result property="login_dwjb" column="dwjb" jdbcType="VARCHAR"/>
+        <result property="cxbz" column="cxbz" jdbcType="VARCHAR"/>
+        <result property="cxvalue" column="cxvalue" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="KjryxxbMap" type="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        <result column="KJRYGUID" property="kjryGuid" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="SEX" property="sex" jdbcType="VARCHAR"/>
+        <result column="BIRTH" property="birth" jdbcType="VARCHAR"/>
+        <result column="NATION" property="nation" jdbcType="DECIMAL"/>
+        <result column="COUNTRY" property="country" jdbcType="INTEGER"/>
+        <result column="ID_TYPE" property="idType" jdbcType="VARCHAR"/>
+        <result column="ID_NUM" property="idNum" jdbcType="INTEGER"/>
+        <result column="POLTC_STATUS" property="poltcstatus" jdbcType="VARCHAR"/>
+        <result column="ACNT_WORK_DATE" property="acntWorkDate" jdbcType="VARCHAR"/>
+        <result column="ACNT_WORK_YEAR" property="acntWorkYear" jdbcType="VARCHAR"/>
+        <result column="FT_EDUCATION" property="ftEducation" jdbcType="VARCHAR"/>
+        <result column="FT_DEGREE" property="ftDegree" jdbcType="VARCHAR"/>
+        <result column="FT_EDU_UNIVE" property="ftEduUnive" jdbcType="VARCHAR"/>
+        <result column="FT_EDU_PRO" property="ftEduPro" jdbcType="VARCHAR"/>
+        <result column="PT_EDUCATION" property="ptEducation" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE" property="ptDegree" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE_UNIVE" property="ptDegreeUnive" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE_PRO" property="ptDegreePro" jdbcType="VARCHAR"/>
+        <result column="ADMIN_POST" property="adminPost" jdbcType="VARCHAR"/>
+        <result column="PQ_POST" property="pqPost" jdbcType="VARCHAR"/>
+        <result column="IS_CPA" property="isCpa" jdbcType="VARCHAR"/>
+        <result column="IS_CPV" property="isCpv" jdbcType="VARCHAR"/>
+        <result column="IS_CTA" property="isCta" jdbcType="VARCHAR"/>
+        <result column="KJSF" property="kjsf" jdbcType="VARCHAR"/>
+        <result column="KJZHQSJ" property="kjzhqsj" jdbcType="VARCHAR"/>
+        <result column="MOBILE" property="mobile" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
+        <result column="IS_ATWORK" property="isAtwork" jdbcType="VARCHAR"/>
+        <result column="ORG_FULL_NAME" property="orgFullName" jdbcType="VARCHAR"/>
+        <result column="SOC_CRE_CODE" property="socCreCode" jdbcType="VARCHAR"/>
+        <result column="ORG_TEL" property="orgTel" jdbcType="VARCHAR"/>
+        <result column="ORG_ADDRESS" property="orgAddress" jdbcType="VARCHAR"/>
+        <result column="ORG_TYPE" property="orgType" jdbcType="VARCHAR"/>
+        <result column="ACNT_POSITION" property="acntPosition" jdbcType="VARCHAR"/>
+        <result column="DIVION_PROVICE" property="divionProvice" jdbcType="INTEGER"/>
+        <result column="REGION_CODE" property="regionCode" jdbcType="INTEGER"/>
+        <result column="AREA_CODE" property="qu" jdbcType="INTEGER"/>
+        <result column="ABACUS_LEVEL" property="abacusLevel" jdbcType="VARCHAR"/>
+        <result column="PT_DEGREE_DATE" property="ptdegreeDate" jdbcType="VARCHAR"/>
+        <result column="PQ_POST_GDATE" property="pqPostGdate" jdbcType="VARCHAR"/>
+        <result column="STATE" property="state" jdbcType="VARCHAR"/>
+        <result column="CTIME" property="ctime" jdbcType="VARCHAR"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="IS_YCPA_TIME" property="is_ycpa_time" jdbcType="VARCHAR"/>
+        <result column="GZSSQY" property="gzssqy" jdbcType="VARCHAR"/>
+        <result column="ZGDWQY" property="zgdwqy" jdbcType="VARCHAR"/>
+        <result column="GRLXDZ" property="grlxdz" jdbcType="VARCHAR"/>
+        <result column="IS_QRZ" property="is_qrz" jdbcType="VARCHAR"/>
+        <result column="KJZJ_NUM" property="kjzj_num" jdbcType="VARCHAR"/>
+        <result column="IS_GDRC" property="isgdrc" jdbcType="VARCHAR"/>
+        <result column="JSJ_FZDATE" property="jsj_fzdate" jdbcType="VARCHAR"/>
+        <result column="JSJ_SCFZDATE" property="jsj_scfzdate" jdbcType="VARCHAR"/>
+        <result column="JSJ_FZDW" property="jsj_fzwd" jdbcType="VARCHAR"/>
+        <result column="JSJ_JSC_BARCODE" property="jsj_barccode" jdbcType="VARCHAR"/>
+        <result column="YHCNS" property="yhcns" jdbcType="VARCHAR"/>
+        <result column="ZJLXID" property="zjlxid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="addkjryxx1">
+        <trim suffixOverrides=",">
+            KJRYGUID,
+            <if test="country !=null and !country.equals(&quot;&quot;)">
+                COUNTRY,
+            </if>
+            <if test="zgdwqy != null and !zgdwqy.equals(&quot;&quot;)">
+                ZGDWQY,
+            </if>
+            <if test="nation != null and !nation.equals(&quot;&quot;)">
+                NATION,
+            </if>
+            <if test="name != null and !name.equals(&quot;&quot;)">
+                NAME,
+            </if>
+            <if test="idType != null and !idType.equals(&quot;&quot;)">
+                ID_TYPE,
+            </if>
+            <if test="idNum != null and !idNum.equals(&quot;&quot;)">
+                ID_NUM,
+            </if>
+            <if test="poltcStatus != null and !poltcStatus.equals(&quot;&quot;)">
+                POLTC_STATUS,
+            </if>
+            <if test="sex != null and !sex.equals(&quot;&quot;)">
+                SEX,
+            </if>
+            <if test="birth != null and !birth.equals(&quot;&quot;)">
+                BIRTH,
+            </if>
+            <if test="adminPost != null and !adminPost.equals(&quot;&quot;)">
+                ADMIN_POST,
+            </if>
+            <if test="pqPost != null and !pqPost.equals(&quot;&quot;)">
+                PQ_POST,
+            </if>
+            <if test="pqPostGdate != null and !pqPostGdate.equals(&quot;&quot;)">
+                PQ_POST_GDATE,
+            </if>
+
+            <if test="kjzhqsj != null and !kjzhqsj.equals(&quot;&quot;)">
+                KJZHQSJ,
+            </if>
+            <if test="isCpa != null and !isCpa.equals(&quot;&quot;)">
+                IS_CPA,
+            </if>
+            <if test="isCta != null and !isCta.equals(&quot;&quot;)">
+                IS_CTA,
+            </if>
+            <if test="isCpv != null and !isCpv.equals(&quot;&quot;)">
+                IS_CPV,
+            </if>
+            <if test="kjsf != null and !kjsf.equals(&quot;&quot;)">
+                KJSF,
+            </if>
+
+            <if test="abacusLevel != null and !abacusLevel.equals(&quot;&quot;)">
+                ABACUS_LEVEL,
+            </if>
+            <if test="orgFullName != null and !orgFullName.equals(&quot;&quot;)">
+                ORG_FULL_NAME,
+            </if>
+            <if test="orgType != null and !orgType.equals(&quot;&quot;)">
+                ORG_TYPE,
+            </if>
+            <if test="orgTel != null and !orgTel.equals(&quot;&quot;)">
+                ORG_TEL,
+            </if>
+            <if test="orgAddress != null and !orgAddress.equals(&quot;&quot;)">
+                ORG_ADDRESS,
+            </if>
+            <if test="isAtwork != null and !isAtwork.equals(&quot;&quot;)">
+                IS_ATWORK,
+            </if>
+            <if test="acntWorkDate != null and !acntWorkDate.equals(&quot;&quot;)">
+                ACNT_WORK_DATE,
+            </if>
+            <if test="acntPosition != null and !acntPosition.equals(&quot;&quot;)">
+                ACNT_POSITION,
+            </if>
+            <if test="gzssqy != null and !gzssqy.equals(&quot;&quot;)">
+                GZSSQY,
+            </if>
+            <if test="mobile != null and !mobile.equals(&quot;&quot;)">
+                MOBILE,
+            </if>
+            <if test="email != null and !email.equals(&quot;&quot;)">
+                EMAIL,
+            </if>
+            state
+        </trim>
+    </sql>
+    <!-- 定义第二个sql片段，第二个对应?，key属性值任意并且唯一 -->
+    <sql id="kjryvalue1">
+        <trim suffixOverrides=",">
+                #{kjryGuid},
+            <if test="country != null and !country.equals(&quot;&quot;)">
+                #{country},
+            </if>
+            <if test="zgdwqy != null and !zgdwqy.equals(&quot;&quot;)">
+                #{zgdwqy},
+            </if>
+            <if test="nation != null and !nation.equals(&quot;&quot;)">
+                #{nation},
+            </if>
+            <if test="name != null and !name.equals(&quot;&quot;)">
+                #{name},
+            </if>
+            <if test="idType != null and !idType.equals(&quot;&quot;)">
+                #{idType},
+            </if>
+            <if test="idNum != null and !idNum.equals(&quot;&quot;)">
+                #{idNum},
+            </if>
+            <if test="poltcStatus != null and !poltcStatus.equals(&quot;&quot;)">
+                #{poltcStatus},
+            </if>
+            <if test="sex != null and !sex.equals(&quot;&quot;)">
+                #{sex},
+            </if>
+            <if test="birth != null and !birth.equals(&quot;&quot;)">
+                TO_DATE(substr(#{birth,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+            </if>
+            <if test="adminPost != null and !adminPost.equals(&quot;&quot;)">
+                #{adminPost},
+            </if>
+            <if test="pqPost != null and !pqPost.equals(&quot;&quot;)">
+                #{pqPost},
+            </if>
+            <if test="pqPostGdate != null and !pqPostGdate.equals(&quot;&quot;)">
+                TO_DATE(substr(#{pqPostGdate,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+            </if>
+            <if test="kjzhqsj != null and !kjzhqsj.equals(&quot;&quot;)">
+                TO_DATE(#{kjzhqsj,jdbcType=DATE}, 'yyyy-MM-dd'),
+            </if>
+            <if test="isCpa != null and !isCpa.equals(&quot;&quot;)">
+                #{isCpa},
+            </if>
+            <if test="isCta != null and !isCta.equals(&quot;&quot;)">
+                #{isCta},
+            </if>
+            <if test="isCpv != null and !isCpv.equals(&quot;&quot;)">
+                #{isCpv},
+            </if>
+            <if test="kjsf != null and !kjsf.equals(&quot;&quot;)">
+                #{kjsf},
+            </if>
+            <if test="abacusLevel != null and !abacusLevel.equals(&quot;&quot;)">
+                #{abacusLevel},
+            </if>
+            <if test="orgFullName != null and !orgFullName.equals(&quot;&quot;)">
+                #{orgFullName},
+            </if>
+            <if test="orgType != null and !orgType.equals(&quot;&quot;)">
+                #{orgType},
+            </if>
+            <if test="orgTel != null and !orgTel.equals(&quot;&quot;)">
+                #{orgTel},
+            </if>
+            <if test="orgAddress != null and !orgAddress.equals(&quot;&quot;)">
+                #{orgAddress},
+            </if>
+            <if test="isAtwork != null and !isAtwork.equals(&quot;&quot;)">
+                #{isAtwork},
+            </if>
+            <if test="acntWorkDate != null and !acntWorkDate.equals(&quot;&quot;)">
+                TO_DATE(substr(#{acntWorkDate,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+            </if>
+            <if test="acntPosition != null and !acntPosition.equals(&quot;&quot;)">
+                #{acntPosition},
+            </if>
+            <if test="gzssqy != null and !gzssqy.equals(&quot;&quot;)">
+                #{gzssqy},
+            </if>
+            <if test="mobile != null and !mobile.equals(&quot;&quot;)">
+                #{mobile},
+            </if>
+            <if test="email != null and !email.equals(&quot;&quot;)">
+                #{email},
+            </if>
+
+            0
+
+            <!--<if test="grlxdz != null and !grlxdz.equals(&quot;&quot;)">
+                #{grlxdz},
+            </if>-->
+        </trim>
+    </sql>
+    <!--修改-->
+    <update id="updateKjryxxb" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        update SN_KJRYXXB
+        <trim prefix="set" suffixOverrides=",">
+            <if test="kjzhqsj != null ">
+                KJZHQSJ=TO_DATE(#{kjzhqsj,jdbcType=DATE}, 'yyyy-MM-dd'),
+            </if>
+            <if test="qu != null">
+                AREA_CODE=#{qu,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null ">
+                COUNTRY=#{country,jdbcType=VARCHAR},
+            </if>
+            <if test="zgdwqy != null ">
+                ZGDWQY=#{zgdwqy,jdbcType=VARCHAR},
+            </if>
+            <if test="nation != null ">
+                NATION=#{nation,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null ">
+                NAME=#{name,jdbcType=VARCHAR},
+            </if>
+            <if test="idType != null ">
+                ID_TYPE=#{idType,jdbcType=VARCHAR},
+            </if>
+            <if test="idNum != null ">
+                ID_NUM=#{idNum,jdbcType=VARCHAR},
+            </if>
+            <if test="poltcStatus != null ">
+                POLTC_STATUS=#{poltcStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null ">
+                SEX=#{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="adminPost != null ">
+                ADMIN_POST=#{adminPost,jdbcType=VARCHAR},
+            </if>
+            <if test="pqPost!= null ">
+                PQ_POST=#{pqPost,jdbcType=VARCHAR},
+            </if>
+            <if test="pqPostGdate!= null ">
+                PQ_POST_GDATE=TO_DATE(substr(#{pqPostGdate,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+            </if>
+            <if test="birth != null ">
+                BIRTH = TO_DATE(substr(#{birth,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+            </if>
+            <if test="isCpa!= null ">
+                IS_CPA=#{isCpa,jdbcType=VARCHAR},
+            </if>
+            <if test="isCta!= null ">
+                IS_CTA=#{isCta,jdbcType=VARCHAR},
+            </if>
+            <if test="isCpv!= null ">
+                IS_CPV=#{isCpv,jdbcType=VARCHAR},
+            </if>
+            <if test="kjsf!= null ">
+                KJSF=(select SBLB_ID FROM SN_SBLB WHERE SBLB_NAME=#{kjsf} AND SBLB_XLLX='yesno'),
+            </if>
+            <if test="abacusLevel!= null ">
+                ABACUS_LEVEL=#{abacusLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="orgFullName!= null ">
+                ORG_FULL_NAME=#{orgFullName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgType!= null ">
+                ORG_TYPE=#{orgType,jdbcType=VARCHAR},
+            </if>
+            <if test="orgTel!= null ">
+                ORG_TEL=#{orgTel,jdbcType=VARCHAR},
+            </if>
+            <if test="orgAddress!= null ">
+                ORG_ADDRESS=#{orgAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="isAtwork!= null ">
+                IS_ATWORK=#{isAtwork,jdbcType=VARCHAR},
+            </if>
+            <if test="acntWorkDate != null ">
+                ACNT_WORK_DATE= TO_DATE(substr(#{acntWorkDate,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+            </if>
+            <if test="acntPosition!= null ">
+                ACNT_POSITION=#{acntPosition,jdbcType=VARCHAR},
+            </if>
+            <if test="gzssqy!= null ">
+                GZSSQY=#{gzssqy,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile!= null ">
+                MOBILE=#{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email!= null ">
+                EMAIL=#{email,jdbcType=VARCHAR},
+            </if>
+            <if test="czbcsj!= null ">
+                SOC_CRE_CODE=#{socCreCode,jdbcType=VARCHAR},
+            </if>
+            SN_CZBCDATE=TO_DATE(#{czbcsj,jdbcType=DATE}, 'yyyy-MM-dd HH:mi:ss')
+        </trim>
+        WHERE KJRYGUID=#{kjryGuid}
+    </update>
+    <!--新增-->
+    <insert id="addkjryxx1" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        update SN_KJRYXXB set(<include refid="addkjryxx1"/>) values(<include refid="kjryvalue1"/>)
+    </insert>
+    <select id="findAllKjry" resultMap="KjryxxbMap">
+        select * from SN_KJRYXXB
+        where KJRYGUID='A96779BFF7F74AACB524EC8F47519416'
+    </select>
+   <!--信息采集新数据-->
+    <select id="findAllKjry2" resultMap="KjryxxbMap" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        select   nation,
+                 STATE,
+                 country,
+                 POLTC_STATUS,
+                 ID_TYPE,
+                 PQ_POST,
+                 ADMIN_POST,
+                ABACUS_LEVEL,
+                ORG_TYPE,
+                 ACNT_POSITION,
+                 AREA_CODE,
+                to_char(BIRTH,'yyyy-MM-dd') as BIRTH,
+                to_char(ACNT_WORK_DATE,'yyyy-MM-dd') as ACNT_WORK_DATE,
+                to_char(PQ_POST_GDATE,'yyyy-MM-dd') as PQ_POST_GDATE,
+                to_char(KJZHQSJ,'yyyy-MM-dd') as KJZHQSJ,
+                ZGDWQY,
+                MOBILE,
+                EMAIL,
+                ORG_TEL,
+                ORG_FULL_NAME,
+                ID_NUM,
+                 IS_ATWORK,
+                IS_CTA,
+                 IS_CPV,
+                IS_CPA,
+                 sex,
+                 (select  SBLB_NAME FROM SN_SBLB WHERE SBLB_ID=KJSF AND SBLB_XLLX='yesno') as KJSF,
+                 IS_YCPA_TIME,
+                 ORG_ADDRESS,
+                NAME,
+                SOC_CRE_CODE,
+                KJRYGUID
+        from
+            SN_KJRYXXB
+        where
+             KJRYGUID=#{kjryGuid}
+    </select>
+   <!--信息采集信息旧数据-->
+    <select id="findAllKjry3" resultMap="KjryxxbMap" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        select  nation,
+                 STATE,
+                 country,
+                 POLTC_STATUS,
+                 ID_TYPE,
+                 PQ_POST,
+                 ADMIN_POST,
+                 ABACUS_LEVEL,
+                 ORG_TYPE,
+                 ACNT_POSITION,
+                 AREA_CODE,
+                to_char(birth,'yyyy-MM-dd') as birth,
+                to_char(JSJ_SCFZDATE,'yyyy-MM-dd') as KJZHQSJ,
+                to_char(PQ_POST_GDATE,'yyyy-MM-dd') as PQ_POST_GDATE,
+                 IS_CTA,
+                 IS_CPV,
+                IS_CPA,
+                MOBILE,
+                EMAIL,
+                ZGDWQY,
+                ORG_TEL,
+                ORG_FULL_NAME,
+                ID_NUM,
+                 IS_ATWORK,
+
+                 sex,
+                 ORG_ADDRESS,
+                name
+        from
+            SN_KJPERSON
+        where
+
+            KJRYGUID=#{kjryGuid}
+    </select>
+    <!--会计人员登记表-->
+    <select id="findAllKjry4" resultMap="KjryxxbMap" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        select   (select SBLB_NAME from SN_SBLB where SBLB_ID=nation and SBLB_XLLX='nation') AS nation,
+                 (select SBLB_NAME from SN_SBLB where SBLB_ID=country and SBLB_XLLX='country') AS  country,
+                 (select SBLB_NAME from SN_SBLB where SBLB_ID=POLTC_STATUS and SBLB_XLLX='zzmm') AS POLTC_STATUS,
+                (select SBLB_NAME from SN_SBLB where SBLB_ID=ID_TYPE and SBLB_XLLX='sfzlx') AS ID_TYPE,
+                (select SBLB_NAME from SN_SBLB where SBLB_ID=IS_ATWORK and SBLB_XLLX='yesno') AS IS_ATWORK,
+                 (select SBLB_NAME from SN_SBLB where SBLB_ID=ADMIN_POST and SBLB_XLLX='kjxzzw') as ADMIN_POST,
+                (select SBLB_NAME from SN_SBLB where SBLB_ID=ABACUS_LEVEL and SBLB_XLLX='zsdj') as ABACUS_LEVEL,
+                (select SBLB_NAME from SN_SBLB where SBLB_ID=ORG_TYPE and SBLB_XLLX='gzdwjjlx') as ORG_TYPE,
+                 (select SBLB_NAME from SN_SBLB where SBLB_ID=ACNT_POSITION and SBLB_XLLX='xcskjgzgw') as ACNT_POSITION,
+        (select SBLB_NAME from SN_SBLB where SBLB_ID=PQ_POST and SBLB_XLLX='kjzyjszw') as PQ_POST,
+                 (select QYMCX from SN_REGION  where ZGDWQY_ID=ZGDWQY) as ZGDWQY,
+                  KJRYGUID, STATE,
+                 (select QYMCX from SN_REGION where ZGDWQY_ID=AREA_CODE ) as AREA_CODE,
+                 to_char(IS_YCPA_TIME,'yyyy-mm-dd') as IS_YCPA_TIME,
+                to_char(birth,'yyyy-MM-dd') as birth,
+                to_char(ACNT_WORK_DATE,'yyyy-MM-dd') as ACNT_WORK_DATE,
+                to_char(PQ_POST_GDATE,'yyyy-MM-dd') as PQ_POST_GDATE,
+                to_char(KJZHQSJ,'yyyy-MM-dd') as KJZHQSJ,
+                MOBILE,
+
+                EMAIL,
+        IS_CTA,
+        IS_CPV,
+        IS_CPA,
+                ORG_TEL,
+                ORG_ADDRESS,
+                ORG_FULL_NAME,
+                ID_NUM,
+                sex,
+                (select  SBLB_NAME FROM SN_SBLB WHERE SBLB_ID=KJSF AND SBLB_XLLX='yesno') as KJSF,
+                name,
+        SOC_CRE_CODE
+        from
+            SN_KJRYXXB
+        where
+            KJRYGUID=#{kjryGuid}
+        <if test="state != null and state!=''">
+            and STATE=#{state}
+        </if>
+    </select>
+    <!--修改会计人员信息状态-->
+    <update id="updateKjryxx" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        update SN_KJRYXXB set
+            STATE=1,YHCNS=#{yhcns},SN_CZTJDATE=TO_DATE(#{cztjsj,jdbcType=DATE}, 'yyyy-MM-dd hh:mi:ss')
+        WHERE KJRYGUID=#{kjryGuid}
+    </update>
+    <select id="selkjryxx" resultMap="KjryxxbMap">
+       select * from SN_KJRYXXB
+       where kjryGuid=#{id}
+    </select>
+    <select id="selkjryxxlssj" resultMap="KjryxxbMap">
+       select * from SN_KJPERSON
+       where kjryGuid=#{id}
+    </select>
+    <!-- 定义两个sql片段，第一个对应字段名,id属性值任意并且唯一 -->
+    <sql id="kjryxxkey">
+        <trim suffixOverrides=",">
+            <if test="idNum != null and idNum !=''">
+                KJRYGUID,
+            </if>
+            <if test="kjzhqsj != null and kjzhqsj !=''">
+                KJZHQSJ,
+            </if>
+            STATE,
+            <if test="qu != null and qu !=''">
+                AREA_CODE,
+            </if>
+            <if test="country != null and country !=''">
+                COUNTRY,
+            </if>
+            <if test="zgdwqy != null and zgdwqy !=''">
+                ZGDWQY,
+            </if>
+            <if test="nation != null and nation !=''">
+                NATION,
+            </if>
+            <if test="name != null and name !=''">
+                NAME,
+            </if>
+            <if test="idType != null and idType !=''">
+                ID_TYPE,
+            </if>
+            <if test="idNum != null and idNum !=''">
+                ID_NUM,
+            </if>
+            <if test="idNum != null and idNum !=''">
+                PASSWORD,
+            </if>
+            <if test="poltcStatus != null and poltcStatus !=''">
+                POLTC_STATUS,
+            </if>
+            <if test="sex != null and sex !=''">
+                SEX,
+            </if>
+            <if test="adminPost != null and adminPost !=''">
+                ADMIN_POST,
+            </if>
+            <if test="pqPost!= null and pqPost !=''">
+                PQ_POST,
+            </if>
+            <if test="pqPostGdate!= null and pqPostGdate !=''">
+                PQ_POST_GDATE,
+            </if>
+            <if test="birth != null and birth !=''">
+                BIRTH,
+            </if>
+            <if test="isCpa!= null and isCpa !=''">
+                IS_CPA,
+            </if>
+            <if test="isCta!= null and isCta !=''">
+                IS_CTA,
+            </if>
+            <if test="isCpv!= null and isCpv !=''">
+                IS_CPV,
+            </if>
+            <if test="kjsf!= null and kjsf !=''">
+                KJSF,
+            </if>
+            <if test="abacusLevel!= null and abacusLevel !=''">
+                ABACUS_LEVEL,
+            </if>
+            <if test="orgFullName!= null and orgFullName !=''">
+                ORG_FULL_NAME,
+            </if>
+            <if test="orgType!= null and orgType !=''">
+                ORG_TYPE,
+            </if>
+            <if test="orgTel!= null and orgTel !=''">
+                ORG_TEL,
+            </if>
+            <if test="orgAddress!= null and orgAddress !=''">
+                ORG_ADDRESS,
+            </if>
+            <if test="isAtwork!= null and isAtwork !=''">
+                IS_ATWORK,
+            </if>
+            <if test="acntWorkDate != null and acntWorkDate !=''">
+                ACNT_WORK_DATE,
+            </if>
+            <if test="acntPosition!= null and acntPosition !=''">
+                ACNT_POSITION,
+            </if>
+            <if test="gzssqy!= null and gzssqy !=''">
+                GZSSQY,
+            </if>
+            <if test="mobile!= null and mobile !=''">
+                MOBILE,
+            </if>
+            <if test="email!= null and email !=''">
+                EMAIL,
+            </if>
+            <if test="socCreCode!= null ">
+                SOC_CRE_CODE,
+            </if>
+            <if test="czbcsj!= null ">
+                SN_CZBCDATE,
+            </if>
+        </trim>
+    </sql>
+    <!-- 定义第二个sql片段，第二个对应?，key属性值任意并且唯一 -->
+    <sql id="kjryxxvalue">
+        <trim suffixOverrides=",">
+            (select KJRYGUID from SN_KJPERSON WHERE ID_NUM=#{idNum}),
+            <if test="kjzhqsj != null and kjzhqsj !=''">
+                TO_DATE(#{kjzhqsj,jdbcType=DATE}, 'yyyy-MM-dd'),
+            </if>
+                '0',
+            <if test="qu != null and qu !=''">
+                #{qu,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null and country !=''">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="zgdwqy != null and zgdwqy !=''">
+                #{zgdwqy,jdbcType=VARCHAR},
+            </if>
+            <if test="nation != null and nation !=''">
+                #{nation,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null and name !=''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="idType != null and idType !=''">
+                #{idType,jdbcType=VARCHAR},
+            </if>
+            <if test="idNum != null and idNum !=''">
+            #{idNum,jdbcType=VARCHAR},
+        </if>
+            <if test="idNum != null and idNum !=''">
+                (select PASSWORD from SN_KJPERSON WHERE  ID_NUM=#{idNum}) ,
+            </if>
+            <if test="poltcStatus != null and poltcStatus !='' ">
+                #{poltcStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null and sex !=''">
+                #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="adminPost != null and adminPost !=''">
+                #{adminPost,jdbcType=VARCHAR},
+            </if>
+            <if test="pqPost!= null and pqPost !=''">
+                #{pqPost,jdbcType=VARCHAR},
+            </if>
+            <if test="pqPostGdate!= null and pqPostGdate !=''">
+                TO_DATE(#{pqPostGdate,jdbcType=DATE},'yyyy-MM-dd'),
+            </if>
+            <if test="birth != null and birth !=''">
+                TO_DATE(#{birth,jdbcType=DATE},'yyyy-MM-dd'),
+            </if>
+            <if test="isCpa!= null and isCpa !=''">
+                #{isCpa,jdbcType=VARCHAR},
+            </if>
+            <if test="isCta!= null and kjsf !=''">
+                #{isCta,jdbcType=VARCHAR},
+            </if>
+            <if test="isCpv!= null and isCpv !=''">
+                #{isCpv,jdbcType=VARCHAR},
+            </if>
+            <if test="kjsf!= null and kjsf !=''">
+                (select SBLB_ID FROM SN_SBLB WHERE SBLB_NAME=#{kjsf} AND SBLB_XLLX='yesno'),
+            </if>
+            <if test="abacusLevel!= null and abacusLevel !=''">
+                #{abacusLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="orgFullName!= null and orgFullName !=''">
+                #{orgFullName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgType!= null and orgTel !=''">
+                #{orgType,jdbcType=VARCHAR},
+            </if>
+            <if test="orgTel!= null and orgTel !=''">
+                #{orgTel,jdbcType=VARCHAR},
+            </if>
+            <if test="orgAddress!= null and orgAddress !=''">
+                #{orgAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="isAtwork!= null and isAtwork !=''">
+                #{isAtwork,jdbcType=VARCHAR},
+            </if>
+            <if test="acntWorkDate != null and acntWorkDate !=''">
+                 TO_DATE(#{acntWorkDate,jdbcType=DATE}, 'yyyy-MM-dd'),
+            </if>
+            <if test="acntPosition!= null and acntPosition !=''">
+                #{acntPosition,jdbcType=VARCHAR},
+            </if>
+            <if test="gzssqy!= null and gzssqy !=''">
+                #{gzssqy,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile!= null and mobile !=''">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email!= null and email !=''">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="socCreCode!= null ">
+              #{socCreCode,jdbcType=VARCHAR},
+            </if>
+            <if test="czbcsj!= null ">
+                TO_DATE(#{czbcsj,jdbcType=DATE}, 'yyyy-MM-dd'),
+            </if>
+        </trim>
+    </sql>
+    <!-- 新增获奖信息 -->
+    <insert id="addkjryxx" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Kjryxxb">
+        insert into SN_KJRYXXB (<include refid="kjryxxkey"/>) values(<include refid="kjryxxvalue"/>)
+    </insert>
+
+    <select id="loginGl" resultMap="UserLoginMap">
+        select * from sn_user u where u.IDENTITY_CARD_NUMBER = #{idcard,jdbcType=VARCHAR}
+    </select>
+    <!--学历是否上传附件判断-->
+    <select id="xlxypd" resultType="java.lang.String">
+       select count(*) from (select xlxx_guid from SN_XLXXB where guid=#{guid} group by xlxx_guid) a left join sn_fjsc b  on a.xlxx_guid=b.sn_bfguid
+    </select>
+
+</mapper>
