@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jwcyzhpt.modules.teaching.dao.ZyzgMapper" >
+  <resultMap id="ZyzgResultMap" type="com.jwcyzhpt.modules.teaching.entity.dto.Zyzg" >
+    <result column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="PQ_TYPE" property="pq_type" jdbcType="VARCHAR" />
+    <result column="PQ_LEVEL" property="pq_level" jdbcType="VARCHAR" />
+    <result column="PQ_GET_DATE" property="pq_get_date" jdbcType="DATE" />
+    <result column="PQ_CARD_NUM" property="pq_card_num" jdbcType="VARCHAR" />
+    <result column="CHANGE_ID" property="change_id" jdbcType="VARCHAR" />
+    <result column="PQ_GET_TYPE" property="pq_get_type" jdbcType="VARCHAR" />
+    <result column="CHANGE_DATE" property="change_date" jdbcType="DATE" />
+    <result column="zsh" property="zsh" jdbcType="VARCHAR" />
+    <result column="zsname" property="zsname" jdbcType="VARCHAR" />
+    <result column="PQ_POST" property="pq_post" jdbcType="VARCHAR" />
+    <result column="pq_post_gdate" property="pq_post_gdate" jdbcType="VARCHAR" />
+    <result column="IS_CPA" property="is_cpa" jdbcType="VARCHAR" />
+    <result column="IS_CPV" property="is_cpv" jdbcType="VARCHAR" />
+    <result column="IS_CTA" property="is_cta" jdbcType="VARCHAR" />
+    <result column="IS_CPAID" property="is_cpaid" jdbcType="VARCHAR" />
+    <result column="IS_CPVID" property="is_cpvid" jdbcType="VARCHAR" />
+    <result column="IS_CTAID" property="is_ctaid" jdbcType="VARCHAR" />
+  </resultMap>
+  <!--查询专业技术资格类型-->
+  <select id="findAllZyzg" resultMap="ZyzgResultMap" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Zyzg">
+    select  a.change_id,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.PQ_POST and SBLB_XLLX='kjzyjszw') as PQ_POST,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.IS_CPA and SBLB_XLLX='yesno') as IS_CPA,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.IS_CPV and SBLB_XLLX='yesno') as IS_CPV,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.IS_CTA and SBLB_XLLX='yesno') as IS_CTA,
+    IS_CPA  as IS_CPAID,
+    IS_CPV  as IS_CPVID,
+    IS_CTA as IS_CTAID,
+    to_char(PQ_POST_GDATE,'YYYY-MM-DD') as PQ_POST_GDATE,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.PQ_TYPE and SBLB_XLLX='zyjszglx') as PQ_TYPE,
+    (select SBLB_ID from SN_SBLB  where sblb_id=a.PQ_TYPE and SBLB_XLLX='zyjszglx') as PQ_TYPE_ID,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.PQ_LEVEL and SBLB_XLLX='zyjjzgjb') as PQ_LEVEL,
+    (select SBLB_ID from SN_SBLB  where sblb_id=a.PQ_LEVEL and SBLB_XLLX='zyjjzgjb') as PQ_LEVEL_ID,
+    (select SBLB_NAME from SN_SBLB  where sblb_id=a.PQ_GET_TYPE and SBLB_XLLX='zyjjzgqdfs') as PQ_GET_TYPE,
+    (select SBLB_ID from SN_SBLB  where sblb_id=a.PQ_GET_TYPE and SBLB_XLLX='zyjjzgqdfs') as PQ_GET_TYPE_ID,
+    to_char(change_date,'YYYY-MM-DD') as change_date,
+    pq_card_num,
+    to_char(pq_get_date,'YYYY-MM-DD') as pq_get_date
+    from SN_ZYJSZGBG a
+    where  1=1
+    <if test="guid!=null and guid!=''">
+      and  guid =#{guid,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!--system 跳 承诺书 -->
+  <select id="findAllZyzg2" resultMap="ZyzgResultMap" parameterType="String">
+    select change_id as guid,
+    (select sblb_name from sn_sblb where sblb_id =sn_zyjszgbg.pq_type) as lx,
+    (select sblb_name from sn_sblb where sblb_id = sn_zyjszgbg.pq_level) as jb,
+    to_char(pq_get_date,'YYYY-MM-DD') as  sj,
+    pq_card_num as zsh,pq_name as zsname
+    from
+        sn_zyjszgbg
+    where
+        change_id = #{change_id}
+    <if test="_parameter != null and !_parameter.equals(&quot;&quot;)">
+         #{_parameter}
+    </if>
+  </select>
+
+  <!--增加-->
+  <sql id="addZyzg">
+    <trim suffixOverrides=",">
+       CHANGE_ID,
+      <if test="pq_type !=null and !pq_type.equals(&quot;&quot;)">
+        PQ_TYPE,
+      </if>
+      <if test="pq_level != null and !pq_level.equals(&quot;&quot;)">
+        PQ_LEVEL,
+      </if>
+      <if test="pq_get_date != null and !pq_get_date.equals(&quot;&quot;)">
+        PQ_GET_DATE,
+      </if>
+
+      <if test="pq_get_type != null and !pq_get_type.equals(&quot;&quot;)">
+        PQ_GET_TYPE,
+      </if>
+      <if test="change_date != null and !change_date.equals(&quot;&quot;)">
+        CHANGE_DATE,
+      </if>
+
+      <if test="pq_card_num != null and !pq_card_num.equals(&quot;&quot;)">
+        PQ_CARD_NUM,
+      </if>
+      <if test="guid != null and !guid.equals(&quot;&quot;)">
+        GUID,
+      </if>
+
+      <if test="pq_post != null and !pq_post.equals(&quot;&quot;)">
+        PQ_POST,
+      </if>
+      <if test="is_cpa != null and !is_cpa.equals(&quot;&quot;)">
+        IS_CPA,
+      </if>
+      <if test="is_cpv != null and !is_cpv.equals(&quot;&quot;)">
+        IS_CPV,
+      </if>
+      <if test="is_cta != null and !is_cta.equals(&quot;&quot;)">
+        IS_CTA,
+      </if>
+      <if test="pq_post_gdate != null and !pq_post_gdate.equals(&quot;&quot;)">
+        PQ_POST_GDATE,
+      </if>
+
+    </trim>
+  </sql>
+
+  <!-- 定义第二个sql片段，第二个对应?，key属性值任意并且唯一 -->
+  <sql id="zyzgvalue">
+    <trim suffixOverrides=",">
+      SYS_GUID(),
+      <if test="pq_type != null and !pq_type.equals(&quot;&quot;)">
+        #{pq_type},
+      </if>
+      <if test="pq_level != null and !pq_level.equals(&quot;&quot;)">
+        #{pq_level},
+      </if>
+      <if test="pq_get_date != null and !pq_get_date.equals(&quot;&quot;)">
+        TO_DATE(substr(#{pq_get_date,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+      </if>
+
+      <if test="pq_get_type != null and !pq_get_type.equals(&quot;&quot;)">
+        #{pq_get_type},
+      </if>
+      <if test="change_date != null and !change_date.equals(&quot;&quot;)">
+        TO_DATE(substr(#{change_date,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+      </if>
+
+      <if test="pq_card_num != null and !pq_card_num.equals(&quot;&quot;)">
+        #{pq_card_num},
+      </if>
+      <if test="guid != null and !guid.equals(&quot;&quot;)">
+        #{guid},
+      </if>
+
+      <if test="pq_post != null and !pq_post.equals(&quot;&quot;)">
+        #{pq_post},
+      </if>
+      <if test="is_cpa != null and !is_cpa.equals(&quot;&quot;)">
+        #{is_cpa},
+      </if>
+      <if test="is_cpv != null and !is_cpv.equals(&quot;&quot;)">
+        #{is_cpv},
+      </if>
+      <if test="is_cta != null and !is_cta.equals(&quot;&quot;)">
+        #{is_cta},
+      </if>
+      <if test="pq_post_gdate != null and !pq_post_gdate.equals(&quot;&quot;)">
+        TO_DATE(substr(#{pq_post_gdate,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+      </if>
+    </trim>
+  </sql>
+  <!--新增奖励项目-->
+  <insert id="addZyzg" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Zyzg">
+    insert into sn_zyjszgbg t (<include refid="addZyzg"/>) values(<include refid="zyzgvalue"/>)
+  </insert>
+
+  <!--删除-->
+  <delete id="delZyzg" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Zyzg">
+        DELETE  FROM sn_zyjszgbg  WHERE CHANGE_ID=#{change_id}
+    </delete>
+
+  <!--修改-->
+  <update id="updateZyzg" parameterType="com.jwcyzhpt.modules.teaching.entity.dto.Zyzg">
+    update sn_zyjszgbg
+    <trim prefix="set" suffixOverrides=",">
+    <if test="pq_type != null and !pq_type.equals(&quot;&quot;)">
+      PQ_TYPE=#{pq_type,jdbcType=VARCHAR},
+    </if>
+    <if test="pq_level != null and !pq_level.equals(&quot;&quot;)">
+      PQ_LEVEL=#{pq_level,jdbcType=VARCHAR},
+    </if>
+    <if test="pq_card_num != null and !pq_card_num.equals(&quot;&quot;)">
+      PQ_CARD_NUM=#{pq_card_num,jdbcType=VARCHAR},
+    </if>
+    <if test="pq_get_type != null and !pq_get_type.equals(&quot;&quot;)">
+      PQ_GET_TYPE=#{pq_get_type,jdbcType=VARCHAR},
+    </if>
+    <if test="change_date != null and !change_date.equals(&quot;&quot;)">
+      CHANGE_DATE= TO_DATE(substr(#{change_date,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+    </if>
+    <if test="pq_get_date != null and !pq_get_date.equals(&quot;&quot;)">
+      PQ_GET_DATE = TO_DATE(substr(#{pq_get_date,jdbcType=DATE},1,10), 'yyyy-MM-dd'),
+    </if>
+    <if test="pq_post != null and !pq_post.equals(&quot;&quot;)">
+      PQ_POST =#{pq_post},
+    </if>
+    <if test="is_cpa != null and !is_cpa.equals(&quot;&quot;)">
+      IS_CPA =#{is_cpa},
+    </if>
+    <if test="is_cpv != null and !is_cpv.equals(&quot;&quot;)">
+      IS_CPV =#{is_cpv},
+    </if>
+    <if test="is_cta != null and !is_cta.equals(&quot;&quot;)">
+      IS_CTA =#{is_cta},
+    </if>
+    <if test="pq_post_gdate != null and !pq_post_gdate.equals(&quot;&quot;)">
+      PQ_POST_GDATE = TO_DATE(substr(#{pq_post_gdate,jdbcType=DATE},1,10), 'yyyy-MM-dd')
+    </if>
+    </trim>
+    WHERE CHANGE_ID=#{change_id}
+  </update>
+</mapper>
